@@ -8,7 +8,7 @@ class InteractiveRecord
   end
 
   def self.column_names
-    DB[:conn].results_as_hash = true
+    DB[:conn].results_as_hash = true #results_as_hash is gem function that grabs the table contents in a hash format
     sql = "PRAGMA table_info('#{table_name}')"
 
     table_info = DB[:conn].execute(sql)
@@ -18,7 +18,7 @@ class InteractiveRecord
       column_names << column["name"]
     end
 
-    column_names.compact
+    column_names.compact #essentially stores the columns
   end
 
 
